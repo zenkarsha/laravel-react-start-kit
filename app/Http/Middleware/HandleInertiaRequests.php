@@ -36,6 +36,11 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        // Skip Inertia for log-viewer route
+        if ($request->routeIs('log-viewer') || $request->is('logs*')) {
+            return parent::share($request);
+        }
+        
         $meta = $this->getPageMeta($request);
         
         // Share meta to blade template

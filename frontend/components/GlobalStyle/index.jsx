@@ -3,7 +3,9 @@ import { respondTo } from "@/utils/responsive";
 
 const GlobalStyle = createGlobalStyle`
     body {
-        touch-action: pan-y;
+      margin: 0;
+      touch-action: pan-y;
+      font-family: 'Noto Sans', 'Noto Sans TC', 'Pingfang TC', '微軟正黑體', 'Microsoft JhengHei', sans-serif;
     }
 
     .mobile-hide {

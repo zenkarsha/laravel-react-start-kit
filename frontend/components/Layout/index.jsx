@@ -15,6 +15,10 @@ const Layout = ({ children, className = "" }) => {
 
 const Root = styled.main``;
 
-const Content = styled.div``;
+const Content = styled.div`
+    // TODO: remove this margin
+    margin: 200px 0;
+    text-align: center;
+`;
 
 export default Layout;

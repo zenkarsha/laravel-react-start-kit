@@ -123,4 +123,13 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Wording Version
+    |--------------------------------------------------------------------------
+    |
+    | This value is the version of the wording files.
+    |
+    */
+    'wording_version' => '1.0.0',
 ];

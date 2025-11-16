@@ -20,7 +20,7 @@ window.axios.interceptors.response.use(
                     csrfToken;
                 return window.axios.request(error.config);
             } else {
-                if (confirm("Session 已過期，是否重新載入頁面？")) {
+                if (confirm("Session is expired, reload page?")) {
                     window.location.reload();
                 }
             }

@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import Layout from "@/components/Layout";
 import { _w } from "@/utils/wordingSystem";
 import { useMeta } from "@/hooks/useMeta";
@@ -8,11 +9,14 @@ const Home = () => {
 
     return (
         <Layout>
-            <main>
-                <h1>{wording.title}</h1>
-            </main>
+            <Title>{wording.title}</Title>
         </Layout>
     );
 };
+
+const Title = styled.h1`
+    font-size: 48px;
+    line-height: 1;
+`;
 
 export default Home;
