@@ -14,6 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             App\Http\Middleware\HandleInertiaRequests::class,
         ]);
+        
+        // 為 Backpack 路由設置語言
+        $middleware->web(append: [
+            \App\Http\Middleware\SetBackpackLocale::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
