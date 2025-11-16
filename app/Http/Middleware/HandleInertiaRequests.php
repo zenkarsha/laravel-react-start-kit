@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -35,9 +36,47 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $meta = $this->getPageMeta($request);
+        
+        // Share meta to blade template
+        View::share('meta', $meta);
+        
         return [
             ...parent::share($request),
-            //
+            'meta' => $meta,
         ];
+    }
+
+    /**
+     * Get page-specific meta tags based on route
+     */
+    protected function getPageMeta(Request $request): array
+    {
+        $defaultMeta = config('meta.default', []);
+        $route = $request->route();
+        $path = $request->path();
+        
+        // Set default meta
+        $meta = [
+            'title' => $defaultMeta['title'],
+            'description' => $defaultMeta['description'],
+            'image' => $defaultMeta['image'],
+            'canonical' => $request->url(),
+            'url' => $request->url(),
+            'type' => 'website',
+        ];
+        
+        // Override with route-specific meta
+        if ($path === '/' || $path === '') {
+            $meta['title'] = '首頁 - ' . $defaultMeta['title'];
+            $meta['description'] = $defaultMeta['description'];
+            $meta['canonical'] = url('/');
+        } elseif ($path === 'about') {
+            $meta['title'] = '關於我們 - ' . $defaultMeta['title'];
+            $meta['description'] = $defaultMeta['description'];
+            $meta['canonical'] = url('/about');
+        }
+        
+        return $meta;
     }
 }

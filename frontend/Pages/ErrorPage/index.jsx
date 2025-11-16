@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Layout from "@/components/Layout";
 import { _w } from "@/utils/wordingSystem";
+import { useMeta } from "@/hooks/useMeta";
 
 const ErrorPage = () => {
     const wording = _w("common.error_page");
+    useMeta();
 
     return (
         <Layout>
