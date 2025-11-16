@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\ErrorPageController;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 Route::get('/', function () {
@@ -18,5 +19,5 @@ Route::get('logs', [LogViewerController::class, 'index'])
     ->name('log-viewer');
 
 Route::fallback(function () {
-  return app(ErrorPageController::class)->index();
+    return app(ErrorPageController::class)->index();
 });
