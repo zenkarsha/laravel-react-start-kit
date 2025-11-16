@@ -1,0 +1,16 @@
+{
+    "header": {
+        "nav": {
+            "home": "首頁",
+            "about": "關於本站"
+        }
+    },
+    "footer": {
+        "copyright": "© Laravel start kit"
+    },
+    "common": {
+        "error_page": {
+            "title": "Page not found"
+        }
+    }
+}
