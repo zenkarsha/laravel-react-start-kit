@@ -8,6 +8,12 @@
     "footer": {
         "copyright": "© Laravel start kit"
     },
+    "home": {
+        "title": "首頁"
+    },
+    "about": {
+        "title": "關於本站"
+    },
     "common": {
         "error_page": {
             "title": "Page not found"
