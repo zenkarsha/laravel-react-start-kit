@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // 為 Backpack 路由設置語言為繁體中文
+        if (request()->is('admin*') || request()->is('backpack*')) {
+            app()->setLocale('zh-Hant');
+            app('translator')->setLocale('zh-Hant');
+        }
     }
 }
