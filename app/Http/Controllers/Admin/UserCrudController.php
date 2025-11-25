@@ -41,14 +41,9 @@ class UserCrudController extends CrudController
     {
         // CRUD::setFromDb(); // set columns from db columns.
 
-        CRUD::column('name')->label('Name');
-        CRUD::column('email')->label('Email');
-        CRUD::column('created_at')->label('Created At');
-
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+        CRUD::column('name')->label('名稱');
+        CRUD::column('email')->label('E-mail');
+        CRUD::column('created_at')->label('建立時間');
     }
 
     /**
