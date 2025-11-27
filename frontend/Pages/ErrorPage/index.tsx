@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import Layout from "@/components/Layout";
 import { _w } from "@/utils/wordingSystem";
@@ -12,7 +11,7 @@ const ErrorPage = () => {
         <Layout>
             <Container>
                 <ErrorCode>404</ErrorCode>
-                <Title>{wording.title}</Title>
+                <Title>{wording?.title}</Title>
             </Container>
         </Layout>
     );

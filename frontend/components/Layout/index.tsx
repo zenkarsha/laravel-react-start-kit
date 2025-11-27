@@ -3,7 +3,12 @@ import styled from "styled-components";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const Layout = ({ children, className = "" }) => {
+interface LayoutProps {
+    children: React.ReactNode;
+    className?: string;
+}
+
+const Layout = ({ children, className = "" }: LayoutProps) => {
     return (
         <Root className={className}>
             <Header />

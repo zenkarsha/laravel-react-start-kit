@@ -10,7 +10,7 @@ const About = () => {
     return (
         <Layout>
             <Title>
-                <h1>{wording.title}</h1>
+                <h1>{wording?.title}</h1>
             </Title>
         </Layout>
     );

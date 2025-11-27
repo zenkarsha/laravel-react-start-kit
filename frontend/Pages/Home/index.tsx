@@ -9,7 +9,7 @@ const Home = () => {
 
     return (
         <Layout>
-            <Title>{wording.title}</Title>
+            <Title>{wording?.title}</Title>
         </Layout>
     );
 };

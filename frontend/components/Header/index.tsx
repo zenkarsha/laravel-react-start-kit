@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Link, usePage } from "@inertiajs/react";
 import { _w } from "@/utils/wordingSystem";
@@ -14,10 +13,10 @@ function Header() {
             </Logo>
             <ul className="unstyled">
                 <li className={url === "/" ? "active" : ""}>
-                    <Link href="/">{wording.nav.home}</Link>
+                    <Link href="/">{wording?.nav?.home}</Link>
                 </li>
                 <li className={url === "/about" ? "active" : ""}>
-                    <Link href="/about">{wording.nav.about}</Link>
+                    <Link href="/about">{wording?.nav?.about}</Link>
                 </li>
             </ul>
         </Root>

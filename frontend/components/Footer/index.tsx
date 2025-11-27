@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { _w } from "@/utils/wordingSystem";
 
@@ -7,7 +6,7 @@ function Footer() {
 
     return (
         <Root>
-            <p>{wording.copyright}</p>
+            <p>{wording?.copyright}</p>
         </Root>
     );
 }

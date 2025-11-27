@@ -1,3 +1,4 @@
+import "./bootstrap";
 import React, { useMemo } from "react";
 import { createInertiaApp } from "@inertiajs/react";
 import { createRoot } from "react-dom/client";
@@ -5,13 +6,17 @@ import { InertiaProgress } from "@inertiajs/progress";
 import GlobalStyle from "@/components/GlobalStyle";
 import { useWordingLoader } from "@/utils/wordingSystem";
 
-const AppWrapper = ({ children }) => {
+interface AppWrapperProps {
+    children: React.ReactNode;
+}
+
+const AppWrapper = ({ children }: AppWrapperProps) => {
     const lang = useMemo(() => document.documentElement.lang || "zh-Hant", []);
     const wordingVersion = useMemo(
         () =>
             document
                 .getElementById("version")
-                .getAttribute("data-wording-version") || "1.0.0",
+                ?.getAttribute("data-wording-version") || "1.0.0",
         []
     );
 
@@ -23,13 +28,13 @@ const AppWrapper = ({ children }) => {
         return <div>loading...</div>;
     }
 
-    return children;
+    return <>{children}</>;
 };
 
 createInertiaApp({
-    resolve: (name) => {
-        const pages = import.meta.glob("./Pages/**/*.jsx", { eager: true });
-        return pages[`./Pages/${name}/index.jsx`];
+    resolve: (name: string) => {
+        const pages = import.meta.glob("./Pages/**/*.tsx", { eager: true });
+        return pages[`./Pages/${name}/index.tsx`];
     },
     setup({ el, App, props }) {
         createRoot(el).render(

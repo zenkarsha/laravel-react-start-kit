@@ -1,11 +1,20 @@
 import { useEffect } from "react";
 import { usePage } from "@inertiajs/react";
 
-export const useMeta = (meta = {}) => {
-    const { meta: pageMeta } = usePage().props;
+interface Meta {
+    title?: string;
+    description?: string;
+    canonical?: string;
+    url?: string;
+    type?: string;
+    image?: string;
+}
+
+export const useMeta = (meta: Meta = {}): void => {
+    const { meta: pageMeta } = usePage().props as { meta?: Meta };
 
     useEffect(() => {
-        const finalMeta = { ...pageMeta, ...meta };
+        const finalMeta: Meta = { ...pageMeta, ...meta };
 
         // 更新 title
         if (finalMeta.title) {
@@ -13,10 +22,14 @@ export const useMeta = (meta = {}) => {
         }
 
         // 更新或創建 meta tags
-        const updateMetaTag = (name, content, attribute = "name") => {
+        const updateMetaTag = (
+            name: string,
+            content: string,
+            attribute: string = "name"
+        ): void => {
             let element = document.querySelector(
                 `meta[${attribute}="${name}"]`
-            );
+            ) as HTMLMetaElement | null;
             if (!element) {
                 element = document.createElement("meta");
                 element.setAttribute(attribute, name);
@@ -32,7 +45,9 @@ export const useMeta = (meta = {}) => {
 
         // 更新 canonical
         if (finalMeta.canonical) {
-            let canonical = document.querySelector("link[rel='canonical']");
+            let canonical = document.querySelector(
+                "link[rel='canonical']"
+            ) as HTMLLinkElement | null;
             if (!canonical) {
                 canonical = document.createElement("link");
                 canonical.setAttribute("rel", "canonical");
