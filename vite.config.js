@@ -8,7 +8,11 @@ export default defineConfig({
             input: ["frontend/app.tsx"],
             refresh: true,
         }),
-        react(),
+        react({
+            babel: {
+                plugins: ["babel-plugin-styled-components"],
+            },
+        }),
     ],
     resolve: {
         alias: {
