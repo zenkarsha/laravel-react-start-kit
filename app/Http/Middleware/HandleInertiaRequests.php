@@ -77,9 +77,17 @@ class HandleInertiaRequests extends Middleware
             $meta['description'] = $defaultMeta['description'];
             $meta['canonical'] = url('/');
         } elseif ($path === 'about') {
-            $meta['title'] = '關於我們 - ' . $defaultMeta['title'];
+            $meta['title'] = '關於本站 - ' . $defaultMeta['title'];
             $meta['description'] = $defaultMeta['description'];
             $meta['canonical'] = url('/about');
+        } elseif ($path === 'privacy-policy') {
+            $meta['title'] = '隱私權政策 - ' . $defaultMeta['title'];
+            $meta['description'] = $defaultMeta['description'];
+            $meta['canonical'] = url('/privacy-policy');
+        } elseif ($path === 'terms-of-service') {
+            $meta['title'] = '服務條款 - ' . $defaultMeta['title'];
+            $meta['description'] = $defaultMeta['description'];
+            $meta['canonical'] = url('/terms-of-service');
         }
         
         return $meta;

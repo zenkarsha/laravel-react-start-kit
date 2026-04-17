@@ -14,6 +14,14 @@ Route::get('/about', function () {
     return Inertia::render('About');
 });
 
+Route::get('/privacy-policy', function () {
+    return Inertia::render('PrivacyPolicy');
+});
+
+Route::get('/terms-of-service', function () {
+    return Inertia::render('TermsOfService');
+});
+
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 // Log Viewer - 只在非生產環境或特定條件下訪問

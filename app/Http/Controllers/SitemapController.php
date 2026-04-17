@@ -42,7 +42,11 @@ class SitemapController extends Controller
             return false;
         }
 
-        if ($route->uri() !== $route->uriWithoutParameters()) {
+        if ($uri === 'up') {
+            return false;
+        }
+
+        if ($uri === 'sitemap.xml') {
             return false;
         }
 

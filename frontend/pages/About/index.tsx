@@ -4,7 +4,7 @@ import { _w } from "@/utils/wordingSystem";
 import { useMeta } from "@/hooks/useMeta";
 
 const About = () => {
-  const wording = _w("about");
+  const wording = _w("about") as any;
   useMeta();
 
   return (

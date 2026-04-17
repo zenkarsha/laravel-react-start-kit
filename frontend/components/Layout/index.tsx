@@ -21,9 +21,10 @@ const Layout = ({ children, className = "" }: LayoutProps) => {
 const Root = styled.main``;
 
 const Content = styled.div`
-  // TODO: remove this margin
-  margin: 200px 0;
   text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  min-height: calc(100vh - 75px - 60px - 80px);
 `;
 
 export default Layout;

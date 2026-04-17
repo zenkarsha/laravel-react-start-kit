@@ -4,7 +4,7 @@ import { _w } from "@/utils/wordingSystem";
 import { useMeta } from "@/hooks/useMeta";
 
 const ErrorPage = () => {
-  const wording = _w("common.error_page");
+  const wording = _w("common.error_page") as any;
   useMeta();
 
   return (
