@@ -33,8 +33,8 @@ const AppWrapper = ({ children }: AppWrapperProps) => {
 
 createInertiaApp({
     resolve: (name: string) => {
-        const pages = import.meta.glob("./Pages/**/*.tsx", { eager: true });
-        return pages[`./Pages/${name}/index.tsx`];
+        const pages = import.meta.glob("./pages/**/*.tsx", { eager: true });
+        return pages[`./pages/${name}/index.tsx`];
     },
     setup({ el, App, props }) {
         createRoot(el).render(
