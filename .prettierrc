@@ -1,0 +1,21 @@
+{
+    "plugins": ["@prettier/plugin-php"],
+    "overrides": [
+        {
+            "files": "*.tsx",
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 200,
+                "singleQuote": false
+            }
+        },
+        {
+            "files": "*.php",
+            "options": {
+                "tabWidth": 4,
+                "printWidth": 800,
+                "singleQuote": false
+            }
+        }
+    ]
+}
