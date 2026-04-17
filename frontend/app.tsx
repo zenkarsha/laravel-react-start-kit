@@ -7,45 +7,37 @@ import GlobalStyle from "@/components/GlobalStyle";
 import { useWordingLoader } from "@/utils/wordingSystem";
 
 interface AppWrapperProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const AppWrapper = ({ children }: AppWrapperProps) => {
-    const lang = useMemo(() => document.documentElement.lang || "zh-Hant", []);
-    const wordingVersion = useMemo(
-        () =>
-            document
-                .getElementById("version")
-                ?.getAttribute("data-wording-version") || "1.0.0",
-        []
-    );
+  const lang = useMemo(() => document.documentElement.lang || "zh-Hant", []);
+  const wordingVersion = useMemo(() => document.getElementById("version")?.getAttribute("data-wording-version") || "1.0.0", []);
 
-    const wordingLoaded = useWordingLoader(
-        `/wordings/${lang}.json?v=${wordingVersion}`
-    );
+  const wordingLoaded = useWordingLoader(`/wordings/${lang}.json?v=${wordingVersion}`);
 
-    if (!wordingLoaded) {
-        return <div>loading...</div>;
-    }
+  if (!wordingLoaded) {
+    return <div>loading...</div>;
+  }
 
-    return <>{children}</>;
+  return <>{children}</>;
 };
 
 createInertiaApp({
-    resolve: (name: string) => {
-        const pages = import.meta.glob("./pages/**/*.tsx", { eager: true });
-        return pages[`./pages/${name}/index.tsx`];
-    },
-    setup({ el, App, props }) {
-        createRoot(el).render(
-            <React.StrictMode>
-                <GlobalStyle />
-                <AppWrapper>
-                    <App {...props} />
-                </AppWrapper>
-            </React.StrictMode>
-        );
-    },
+  resolve: (name: string) => {
+    const pages = import.meta.glob("./pages/**/*.tsx", { eager: true });
+    return pages[`./pages/${name}/index.tsx`];
+  },
+  setup({ el, App, props }) {
+    createRoot(el).render(
+      <React.StrictMode>
+        <GlobalStyle />
+        <AppWrapper>
+          <App {...props} />
+        </AppWrapper>
+      </React.StrictMode>,
+    );
+  },
 });
 
 InertiaProgress.init();

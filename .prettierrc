@@ -2,7 +2,7 @@
     "plugins": ["@prettier/plugin-php"],
     "overrides": [
         {
-            "files": "*.tsx",
+            "files": "frontend/**/*.{ts,tsx}",
             "options": {
                 "tabWidth": 2,
                 "printWidth": 200,

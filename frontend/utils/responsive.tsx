@@ -1,64 +1,58 @@
 import { useState, useEffect } from "react";
 
 const breakpoints = {
-    xs: 475,
-    sm: 576,
-    md: 768,
-    lg: 1024,
-    xl: 1440,
+  xs: 475,
+  sm: 576,
+  md: 768,
+  lg: 1024,
+  xl: 1440,
 };
 
 function mediaQueryTo(breakpoint: number): string {
-    return `@media screen and (max-width: ${breakpoint}px)`;
+  return `@media screen and (max-width: ${breakpoint}px)`;
 }
 
 function mediaQueryFrom(breakpoint: number): string {
-    return `@media screen and (min-width: ${breakpoint + 1}px)`;
+  return `@media screen and (min-width: ${breakpoint + 1}px)`;
 }
 
 export const respondTo = {
-    xs: mediaQueryTo(breakpoints.xs),
-    sm: mediaQueryTo(breakpoints.sm),
-    md: mediaQueryTo(breakpoints.md),
-    lg: mediaQueryTo(breakpoints.lg),
-    xl: mediaQueryTo(breakpoints.xl),
+  xs: mediaQueryTo(breakpoints.xs),
+  sm: mediaQueryTo(breakpoints.sm),
+  md: mediaQueryTo(breakpoints.md),
+  lg: mediaQueryTo(breakpoints.lg),
+  xl: mediaQueryTo(breakpoints.xl),
 };
 
 export const respondFrom = {
-    xs: mediaQueryFrom(breakpoints.xs),
-    sm: mediaQueryFrom(breakpoints.sm),
-    md: mediaQueryFrom(breakpoints.md),
-    lg: mediaQueryFrom(breakpoints.lg),
-    xl: mediaQueryFrom(breakpoints.xl),
+  xs: mediaQueryFrom(breakpoints.xs),
+  sm: mediaQueryFrom(breakpoints.sm),
+  md: mediaQueryFrom(breakpoints.md),
+  lg: mediaQueryFrom(breakpoints.lg),
+  xl: mediaQueryFrom(breakpoints.xl),
 };
 
 export function isMobile(): boolean {
-    const isMobile =
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-            navigator.userAgent
-        );
-    const isIPadOS =
-        navigator?.maxTouchPoints &&
-        navigator.maxTouchPoints > 2 &&
-        /Intel Mac/.test(navigator.userAgent);
-    return isMobile || isIPadOS;
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isIPadOS = navigator?.maxTouchPoints && navigator.maxTouchPoints > 2 && /Intel Mac/.test(navigator.userAgent);
+  return isMobile || isIPadOS;
 }
 
 export const useMediaSelectTo = (breakpoint: number): boolean => {
-    const [matched, setMatched] = useState(false);
+  const [matched, setMatched] = useState(false);
 
-    useEffect(() => {
-        function handler(x: MediaQueryListEvent | MediaQueryList) {
-            setMatched(x.matches);
-        }
-        const x = window.matchMedia(`(max-width: ${breakpoint}px)`);
-        handler(x);
-        x.addEventListener("change", handler);
+  useEffect(() => {
+    function handler(x: MediaQueryListEvent | MediaQueryList) {
+      setMatched(x.matches);
+    }
+    const x = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    handler(x);
+    x.addEventListener("change", handler);
 
-        return () => {
-            x.removeEventListener("change", handler);
-        };
-    }, [breakpoint]);
+    return () => {
+      x.removeEventListener("change", handler);
+    };
+  }, [breakpoint]);
 
-    return matched;
+  return matched;
 };

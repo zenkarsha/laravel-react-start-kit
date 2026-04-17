@@ -4,26 +4,26 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 interface LayoutProps {
-    children: React.ReactNode;
-    className?: string;
+  children: React.ReactNode;
+  className?: string;
 }
 
 const Layout = ({ children, className = "" }: LayoutProps) => {
-    return (
-        <Root className={className}>
-            <Header />
-            <Content>{children}</Content>
-            <Footer />
-        </Root>
-    );
+  return (
+    <Root className={className}>
+      <Header />
+      <Content>{children}</Content>
+      <Footer />
+    </Root>
+  );
 };
 
 const Root = styled.main``;
 
 const Content = styled.div`
-    // TODO: remove this margin
-    margin: 200px 0;
-    text-align: center;
+  // TODO: remove this margin
+  margin: 200px 0;
+  text-align: center;
 `;
 
 export default Layout;
