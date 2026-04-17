@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ErrorPageController;
+use App\Http\Controllers\SitemapController;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 Route::get('/', function () {
@@ -12,6 +13,8 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return Inertia::render('About');
 });
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 // Log Viewer - 只在非生產環境或特定條件下訪問
 Route::get('logs', [LogViewerController::class, 'index'])
