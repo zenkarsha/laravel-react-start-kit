@@ -12,7 +12,8 @@
         "privacy_policy": "隱私權政策"
     },
     "home": {
-        "title": "Laravel start kit"
+        "title": "Laravel Start Kit",
+        "description": "從這裡開始你的新專案"
     },
     "about": {
         "title": "關於本站"
