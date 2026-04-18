@@ -24,7 +24,7 @@ function Header() {
     <Root>
       <Shell>
         <Logo href="/">
-          <img src="/images/logo.png" alt="logo" />
+          <img src="/images/logo.svg" alt="logo" />
           <Title>{wording?.title}</Title>
         </Logo>
         <Hamburger
