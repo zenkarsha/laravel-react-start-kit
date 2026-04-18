@@ -12,19 +12,33 @@ const Layout = ({ children, className = "" }: LayoutProps) => {
   return (
     <Root className={className}>
       <Header />
-      <Content>{children}</Content>
-      <Footer />
+      <Wrapper>
+        <Content>{children}</Content>
+        <Footer />
+      </Wrapper>
     </Root>
   );
 };
 
-const Root = styled.main``;
+const Root = styled.main`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+`;
+
+const Wrapper = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+`;
 
 const Content = styled.div`
+  flex: 1;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  min-height: calc(100vh - 75px - 60px - 80px);
+  padding-top: 56px;
+  padding-bottom: 40px;
 `;
 
 export default Layout;

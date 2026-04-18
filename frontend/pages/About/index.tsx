@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Layout from "@/components/Layout";
+import StarterHint from "@/components/StarterHint";
 import { _w } from "@/utils/wordingSystem";
 import { useMeta } from "@/hooks/useMeta";
 
@@ -9,18 +10,22 @@ const About = () => {
 
   return (
     <Layout>
-      <Title>
-        <h1>{wording?.title}</h1>
-      </Title>
+      <Wrap>
+        <Title>{wording?.title}</Title>
+        <StarterHint />
+      </Wrap>
     </Layout>
   );
 };
 
-const Title = styled.div`
-  h1 {
-    font-size: 48px;
-    line-height: 1;
-  }
+const Wrap = styled.div`
+  display: grid;
+  gap: 24px;
+`;
+
+const Title = styled.h1`
+  font-size: 48px;
+  line-height: 1;
 `;
 
 export default About;

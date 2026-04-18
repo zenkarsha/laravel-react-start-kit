@@ -8,9 +8,9 @@ function Footer() {
 
   return (
     <Root>
-      <p>
+      <Copyright>
         {new Date().getFullYear()} {wording?.copyright}
-      </p>
+      </Copyright>
       <Links className="unstyled">
         <li>
           <Link href="/privacy-policy">{wording?.privacy_policy}</Link>
@@ -33,13 +33,21 @@ const Root = styled.div`
   background: white;
 `;
 
+const Copyright = styled.p`
+  line-height: 60px;
+
+  ${respondTo.md} {
+    font-size: 12px;
+  }
+`;
+
 const Links = styled.ul`
   display: flex;
   gap: 20px;
   margin-left: 20px;
+  line-height: 60px;
 
   ${respondTo.md} {
-    margin-left: 0;
     font-size: 12px;
   }
 `;

@@ -90,7 +90,7 @@ const renderInlineMarkdown = (text: string): ReactNode[] => {
 };
 
 const GuideCard = styled.section`
-  width: min(100%, 960px);
+  width: min(100%, 980px);
   margin: 0 auto;
   padding: 32px;
   border: 1px solid #e2e8f0;

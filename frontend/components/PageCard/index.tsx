@@ -73,7 +73,7 @@ const Page = styled.div`
 `;
 
 const Card = styled.article`
-  width: min(100%, 920px);
+  width: min(100%, 980px);
   padding: 48px;
   border: 1px solid #e7e7e7;
   border-radius: 24px;
